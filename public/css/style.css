@@ -1544,6 +1544,7 @@ body.nav-active { overflow: hidden; }
   border:var(--border);
   border-radius: .5rem;
   margin-top: 1rem;
+  width: 100%;
   margin-bottom: 1rem;
 }
 

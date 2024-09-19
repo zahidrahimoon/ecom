@@ -57,7 +57,7 @@
             <a href="{{ url('/contact') }}" class="navbar-link title-md">Contact Us</a>
           </li>
           <li class="navbar-item">
-            <a href="{{ url('/appointment') }}" class="navbar-link title-md" style="background-color: hsl(182, 100%, 35%); border-radius: 6px;">Get Appointment</a>
+            <a href="{{ url('/bookings/create') }}" class="navbar-link title-md" style="background-color: hsl(182, 100%, 35%); border-radius: 6px;">Get Appointment</a>
           </li>
         </ul>
 
