@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DoctorController;
 
+
+
 // Define routes for BookingController
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
@@ -28,6 +30,10 @@ Route::get('/contact', function () {
 
 Route::get('/service', function () {
     return view('services');
+});
+
+Route::get('/admin/dashboard', function () {
+    return view('adminLaravel');
 });
 
 Route::get('/doctors', [DoctorController::class, 'showDoctors']);

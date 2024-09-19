@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable; // Change this line
 use Illuminate\Notifications\Notifiable;
 
 class Admin extends Authenticatable

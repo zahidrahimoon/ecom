@@ -49,29 +49,31 @@ class AuthController extends Controller
     }
 
     // Handle Admin Login
-    public function adminLogin(Request $request)
-    {
-        // Validate the incoming request
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-        ]);
+// Handle Admin Login
+public function adminLogin(Request $request)
+{
+    // Validate the incoming request
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
+        'password' => 'required|min:8',
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        // Attempt to log the admin in
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('/admin/dashboard'); // Adjust the redirect path as needed
-        }
-
+    if ($validator->fails()) {
         return redirect()->back()
-            ->withErrors(['email' => 'The provided credentials do not match our records.'])
-            ->withInput($request->except('password'));
+            ->withErrors($validator)
+            ->withInput();
     }
+
+    // Use Auth::guard('admin') to attempt login
+    if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
+        return redirect()->intended('/admin/dashboard');
+    }
+
+    return redirect()->back()
+        ->withErrors(['email' => 'The provided credentials do not match our records.'])
+        ->withInput($request->except('password'));
+}
+
 
     // Show Driver Login Form
     public function showDriverLoginForm()
