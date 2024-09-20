@@ -72,8 +72,8 @@ public function adminLogin(Request $request)
     return redirect()->back()
         ->withErrors(['email' => 'The provided credentials do not match our records.'])
         ->withInput($request->except('password'));
-}
 
+}
 
     // Show Driver Login Form
     public function showDriverLoginForm()
@@ -135,6 +135,8 @@ public function adminLogin(Request $request)
 
         return redirect()->route('login')->with('success', 'Registration successful!');
     }
+
+
 }
 
 

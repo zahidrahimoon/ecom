@@ -46,11 +46,7 @@
       <!-- Sidebar Navigation end -->
 
       <!-- Main Page Content -->
-      @include('components.adminPageContent')
-      <!-- Main Page Content end -->
-
-      
-
+      @include('ambulances.pageContentAmbulance')
     </div>
 
     <!-- JavaScript Files -->

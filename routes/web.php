@@ -35,6 +35,39 @@ Route::get('/service', function () {
 Route::get('/admin/dashboard', function () {
     return view('adminLaravel');
 });
+Route::get('/ambulances/pageContentAmbulance', function () {
+    return view('ambulances.pageContentAmbulance');
+});
+
+// Routes for users
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+// Routes for admins
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('adminLaravel');
+    });
+});
+
+
+// Routes for drivers
+Route::middleware(['auth', 'driver'])->group(function () {
+    Route::get('/driver/dashboard', function () {
+        // Driver dashboard logic
+        return view('driver.dashboard');
+    });
+});
+
+
+
+
+
+use App\Http\Controllers\AmbulanceController;
+
+Route::resource('ambulances', AmbulanceController::class);
 
 Route::get('/doctors', [DoctorController::class, 'showDoctors']);
 
